@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   vars_file:
-    - /homebrew.yml
+    - /homebrew_vars.yml
   tasks:
     - name: Add homebrew taps
       command: brew tap {{ item }}
