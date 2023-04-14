@@ -4,12 +4,14 @@ packages:
   - 7zip
   - vlc
   - vscode
+  - onlyoffice
   - git
   - miniconda3
   - github-desktop
   - spotify
   - zotero
   - steam
+  - goggalaxy
   - zoom
   - notion
   - putty

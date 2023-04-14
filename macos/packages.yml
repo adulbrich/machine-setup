@@ -16,6 +16,7 @@ casks:
   - visual-studio-code
   - notion
   - bitwarden
+  - kdrive
   - discord
   - zoom
   - firefox
@@ -30,3 +31,22 @@ casks:
   - postman
   - utm
   - appcleaner
+  - oversight
+  - knockknock
+  - blockblock
+  - drawio
+  - imageoptim
+  - onlyoffice
+  - protonmail-bridge
+  - protonvpn
+  - raycast
+  - the-unarchiver
+  - webtorrent
+  - gog-galaxy
+  - steam
+  - battle-net
+  - blender
+  - calibre
+  - inkscape
+  - gimp
+  - elgato-wave-link
