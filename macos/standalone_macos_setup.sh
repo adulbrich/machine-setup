@@ -14,12 +14,9 @@ else
     brew install yq
 fi
 
-# Load formulae and casks from YAML file
-packages=$(yq r packages.yml)
-
 # Install formulae using Homebrew
 echo "Installing formulae..."
-for formula in $(echo "$packages" | yq r - formulae[]); do
+for formula in $(yq '.formulae[]' packages.yml); do
     if brew list "$formula" &> /dev/null; then
         echo "$formula is already installed. Skipping..."
     else
@@ -30,7 +27,7 @@ done
 
 # Install casks using Homebrew
 echo "Installing casks..."
-for cask in $(echo "$packages" | yq r - casks[]); do
+for cask in $(yq '.casks[]' packages.yml); do
     if brew list --cask "$cask" &> /dev/null; then
         echo "$cask is already installed. Skipping..."
     else
