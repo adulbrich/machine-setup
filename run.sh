@@ -23,7 +23,7 @@ then
 elif [[ "$(uname -a)" == *"Darwin"* ]]; 
 then
     # Check if Homebrew is installed
-    if ! command -v ansible &>/dev/null; 
+    if ! command -v brew &>/dev/null; 
     then
         # Install Homebrew
         echo "Homebrew not found. Installing Homebrew..."
