@@ -1,7 +1,7 @@
-homebrew_taps: []
+taps: []
 
 # https://formulae.brew.sh/formula/
-homebrew_formula_packages:
+formulae:
   - git
   - curl
   - wget
@@ -10,7 +10,7 @@ homebrew_formula_packages:
   - terraform
 
 # https://formulae.brew.sh/cask/
-homebrew_cask_packages:
+casks:
   - iterm2
   - miniconda
   - visual-studio-code
@@ -19,6 +19,7 @@ homebrew_cask_packages:
   - discord
   - zoom
   - firefox
+  - brave-browser
   - microsoft-edge
   - spotify
   - whatsapp

@@ -1,0 +1,22 @@
+packages:
+  - firefox
+  - brave
+  - 7zip
+  - vlc
+  - vscode
+  - git
+  - miniconda3
+  - github-desktop
+  - spotify
+  - zotero
+  - steam
+  - zoom
+  - notion
+  - putty
+  - sumatrapdf
+  - nvm
+  - r
+  - rtools
+  - r.studio
+  - nvidia-display-driver
+  - geforce-experience

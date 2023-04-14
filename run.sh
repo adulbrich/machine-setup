@@ -14,6 +14,7 @@ then
     if ! command -v ansible &>/dev/null; 
     then
         # Install Ansible
+        echo "Ansible not found. Installing Ansible..."
         sudo apt update
         sudo apt install software-properties-common
         sudo add-apt-repository --yes --update ppa:ansible/ansible
@@ -25,17 +26,19 @@ then
     if ! command -v ansible &>/dev/null; 
     then
         # Install Homebrew
+        echo "Homebrew not found. Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     # Check if Ansible is installed
     if ! command -v ansible &>/dev/null; 
     then
         # Install Ansible
+        echo "Ansible not found. Installing Ansible..."
         brew install ansible
         brew install ansible-lint
     fi
 else
-    echo "Unsupported operating system."
+    echo "Unsupported operating system. For Windows, execute the powershell script."
 fi
 
 ansible-playbook playbook.yml
