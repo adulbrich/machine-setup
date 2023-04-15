@@ -1,11 +1,11 @@
 - name: macOS setup
   hosts: localhost
   connection: local
-  vars_file:
-    - /packages.yml
+  vars_files:
+    - packages.yml
 
   pre_tasks:
-    - name: Check if homebrew is installed
+    - name: Check if Homebrew is installed
       ansible.builtin.command: brew --version
       register: version
     - name: Install Homebrew
@@ -13,21 +13,26 @@
       when: version.rc != 0 # rc is for return code
   
   tasks:
-    - name: Tap a Homebrew repository, state present
-      community.general.homebrew_tap:
-        name: "{{ taps }}"
+    - name: Tap Homebrew repositories
+      include_tasks: task_homebrew_tap.yml
+      vars:
+        tap: "{{ item }}"
+      with_items:
+        - "{{ taps }}"
 
-    - name: Install homebrew packages
-      community.general.homebrew:
-        name: "{{ formulae }}"
-        state: present
-        update_homebrew: true
+    - name: Install Homebrew formula packages
+      include_tasks: task_homebrew_formula.yml
+      vars:
+        cask: "{{ item }}"
+      with_items:
+        - "{{ formulae }}"
 
-    - name: Install homebrew cask packages
-      community.general.homebrew_cask:
-        name: "{{ casks }}"
-        state: present
-        update_homebrew: true
+    - name: Install Homebrew cask packages
+      include_tasks: task_homebrew_cask.yml
+      vars:
+        cask: "{{ item }}"
+      with_items:
+        - "{{ casks }}"
 
   post_tasks:
     - name: Report any errors

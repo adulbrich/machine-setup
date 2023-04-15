@@ -1,0 +1,9 @@
+- name: Install package and handle errors
+  block:
+    - name: Install {{ formula }}
+      community.general.homebrew:
+        name: "{{ formula }}"
+        state: present
+  rescue:
+    - debug:
+        msg: "I caught an error with {{ formula }}" 

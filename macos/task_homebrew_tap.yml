@@ -1,0 +1,9 @@
+- name: Tap repository and handle errors
+  block:
+    - name: Install {{ tap }}
+      community.general.homebrew_tap:
+        name: "{{ tap }}"
+        state: present
+  rescue:
+    - debug:
+        msg: "I caught an error with {{ tap }}" 

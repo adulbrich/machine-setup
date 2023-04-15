@@ -1,0 +1,9 @@
+- name: Install package and handle errors
+  block:
+    - name: Install {{ cask }}
+      community.general.homebrew_cask:
+        name: "{{ cask }}"
+        state: present
+  rescue:
+    - debug:
+        msg: "I caught an error with {{ cask }}" 
