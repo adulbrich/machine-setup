@@ -5,34 +5,29 @@
     - /packages.yml
 
   pre_tasks:
+    - name: Check if homebrew is installed
+      ansible.builtin.command: brew --version
+      register: version
     - name: Install Homebrew
       shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      when: not ('brew' in ansible_playbook_python)
+      when: version.rc != 0 # rc is for return code
   
   tasks:
-    - name: Add homebrew taps
-      command: brew tap {{ item }}
-      loop: "{{ taps }}"
-
-    - name: Update homebrew
-      homebrew:
-        update_homebrew: true
+    - name: Tap a Homebrew repository, state present
+      community.general.homebrew_tap:
+        name: "{{ taps }}"
 
     - name: Install homebrew packages
-      homebrew:
-        name: "{{ item }}"
-        state: latest
-      loop: "{{ formulae }}"
+      community.general.homebrew:
+        name: "{{ formulae }}"
+        state: present
+        update_homebrew: true
 
     - name: Install homebrew cask packages
-      homebrew_cask:
-        name: "{{ item }}"
-        state: latest
-      loop: "{{ casks }}"
-      ignore_errors: true
-
-    - name: homebrew cleanup
-      command: brew cleanup
+      community.general.homebrew_cask:
+        name: "{{ casks }}"
+        state: present
+        update_homebrew: true
 
   post_tasks:
     - name: Report any errors

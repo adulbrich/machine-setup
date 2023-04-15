@@ -36,9 +36,13 @@ then
         echo "Ansible not found. Installing Ansible..."
         brew install ansible
         brew install ansible-lint
+        # ansible-galaxy collection install community.general # if not already installed
     fi
 else
-    echo "Unsupported operating system. For Windows, execute the powershell script."
+    echo "Unsupported operating system."
 fi
 
 ansible-playbook playbook.yml
+
+echo "Done."
+read -n 1 -s -r -p "Press any key to close this terminal..."

@@ -1,0 +1,8 @@
+- hosts: webservers
+  roles:
+    - role: debian
+      when: ansible_facts['os_family'] == 'Debian'
+    - role: macos
+      when: ansible_facts['os_family'] == 'Darwin'
+    - role: windows
+      when: ansible_facts['os_family'] == 'Windows'
