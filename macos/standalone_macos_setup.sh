@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# this is a standalone script that reads the corresponding packages.yml
+# it does not use Ansible
+
 # Check if Homebrew is installed
 if ! command -v brew &> /dev/null; then
     echo "Homebrew not found. Installing Homebrew..."

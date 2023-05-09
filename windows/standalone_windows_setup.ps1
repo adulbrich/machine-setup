@@ -1,3 +1,7 @@
+
+# this is a standalone script that reads the corresponding packages.yml
+# it does not use Ansible, Ansible is only supported through WSL in windows
+
 # Install Chocolatey if it's not already installed
 if (!(Get-Command choco.exe -ErrorAction SilentlyContinue)) {
     Write-Host "Installing chocolatey..."
