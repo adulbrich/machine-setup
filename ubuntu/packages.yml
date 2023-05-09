@@ -1,0 +1,22 @@
+apt_repositories: []
+
+apt_packages:
+  - snap
+  - git
+  - curl
+  - wget
+  - htop
+  - zsh
+  - tmux
+
+snap_packages:
+  - docker
+  - minikube
+  - kubectl
+  - spotify
+  - vlc
+  - bitwarden
+  - insomnia
+  - postman
+  - code
+  - brave

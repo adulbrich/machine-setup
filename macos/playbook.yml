@@ -23,7 +23,7 @@
     - name: Install Homebrew formula packages
       include_tasks: task_homebrew_formula.yml
       vars:
-        cask: "{{ item }}"
+        formula: "{{ item }}"
       with_items:
         - "{{ formulae }}"
 
