@@ -1,6 +1,7 @@
 - name: Debian and Ubuntu setup
   hosts: localhost
   connection: local
+  become: true
   vars_files:
     - packages.yml
   
@@ -11,5 +12,5 @@
         update_cache: yes
     - name: Install snap packages
       ansible.builtin.snap:
-        pkg: "{{ snap_packages }}"
+        name: "{{ snap_packages }}"
         
