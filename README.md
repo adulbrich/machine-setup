@@ -28,7 +28,15 @@ In order to properly catch errors and avoid the configuration to stop when encou
 
 ## Ubuntu/Debian local Ansible setup
 
-A simple version of the macOS Ansible configuration, using `apt` and `snap` to install packages an Ubuntu or Debian host. Two tasks are defined, one for `apt` packages and one for `snap` packages. The playbook will read the `./ubuntu/packages.yml` to find the lists of packages. Not tested yet.
+A simple version of the macOS Ansible configuration, using `apt` and `snap` to install packages an Ubuntu or Debian host. Two tasks are defined, one for `apt` packages and one for `snap` packages. The playbook will read the `./ubuntu/packages.yml` to find the lists of packages. 
+
+You might need elevated privileges to install packages in Ubuntu/Debian:
+
+```
+ansible-playbook playbook.yml --ask-become-pass
+```
+
+Note that `snap` task might fail on `arm64` because the packages are not available for that architecture.
 
 ## Ansible Manual Installation
 

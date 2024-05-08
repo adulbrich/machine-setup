@@ -11,12 +11,10 @@ apt_packages:
 
 snap_packages:
   - docker
-  - minikube
   - kubectl
   - spotify
   - vlc
   - bitwarden
-  - insomnia
-  - postman
+  - bruno
   - code
   - brave
